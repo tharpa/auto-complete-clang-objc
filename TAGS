@@ -1,0 +1,39 @@
+
+rk-auto-complete-clang.el,1500
+(defcustom ac-clang-executable33,1065
+(defcustom ac-clang-auto-save 39,1198
+(defcustom ac-clang-lang-option-function 48,1629
+(defcustom ac-clang-flags 54,1817
+(defvar ac-clang-prefix-header 61,2116
+(defun ac-clang-set-prefix-header 64,2185
+(defun ac-clang-set-cflags 77,2723
+(defun ac-clang-set-cflags-from-shell-command 83,2931
+(defconst ac-clang-completion-pattern93,3321
+(defconst ac-clang-error-buffer-name 99,3695
+(defun ac-clang-parse-output 101,3750
+(defun ac-clang-handle-error 137,5191
+(defun ac-clang-call-process 159,6132
+(defsubst ac-clang-build-location 174,6717
+(defsubst ac-clang-lang-option 180,6943
+(defsubst ac-clang-build-complete-args 195,7440
+(defsubst ac-clang-clean-document 207,7905
+(defun ac-clang-document 213,8075
+(defface ac-clang-candidate-face222,8293
+(defface ac-clang-selection-face227,8435
+(defun ac-in-string/comment 233,8624
+(defun ac-clang-candidate 237,8748
+(defvar ac-template-start-point 249,9073
+(defvar ac-template-candidates 251,9111
+(defvar begining-of-candidate 253,9169
+(defun ac-clang-action-old 255,9205
+(defun ac-clang-action-c++ 285,10494
+(defun ac-clang-action 330,12850
+(defun ac-clang-prefix 345,13548
+(defun ac-clang-prefix-orig 360,14046
+(defun ac-clang-same-count-in-string 383,14724
+(defun ac-clang-split-args 394,15037
+(defun ac-template-candidate 414,15715
+(defun ac-template-action 417,15774
+(defun ac-template-action-2 430,16234
+(defun ac-template-action-3 447,16975
+(defun ac-template-prefix 492,19146
