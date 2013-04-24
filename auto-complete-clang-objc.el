@@ -266,18 +266,32 @@ This variable will typically contain include paths, e.g., ( \"-I~/MyProject\", \
         (cond ((featurep 'yasnippet)
                (yas/expand-snippet s begining-of-candidate (point))))))))
 
+(defconst ac-clang-objc-message-pattern
+  "[]_a-zA-Z0-9]+\s*\\=")
+
+(defun ac-clang-objc-message-prefix ()
+  (save-excursion
+    (let ((p (point)))
+      (when (re-search-backward
+             ac-clang-objc-message-pattern nil t)
+        p))))
+
 (defun ac-clang-prefix ()
   (let ((pos
          (or (ac-prefix-symbol)
              (let ((c (char-before)))
-               (when (or (eq ?\. c)
-                         ;; ->
-                         (and (eq ?> c)
-                              (eq ?- (char-before (1- (point)))))
-                         ;; ::
-                         (and (eq ?: c)
-                              (eq ?: (char-before (1- (point))))))
-                 (point))))))
+               (cond ((or (eq ?[ c) (eq ?] c))
+                      (point))
+                     ((or (eq ?  c) (eq ?\t c))
+                      (ac-clang-objc-message-prefix))
+                     ((or (eq ?\. c)
+                          ;; ->
+                          (and (eq ?> c)
+                               (eq ?- (char-before (1- (point)))))
+                          ;; ::
+                          (and (eq ?: c)
+                               (eq ?: (char-before (1- (point))))))
+                      (point)))))))
     (setq begining-of-candidate pos)
     pos))
 
