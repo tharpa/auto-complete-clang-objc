@@ -59,7 +59,7 @@ This variable will typically contain include paths, e.g., ( \"-I~/MyProject\", \
   :group 'auto-complete
   :type '(repeat (string :tag "Argument" "")))
 
-;;; The prefix header to use with Clang code completion. 
+;;; The prefix header to use with Clang code completion.
 (defvar ac-clang-prefix-header nil)
 
 ;;; Set the Clang prefix header
@@ -106,15 +106,15 @@ This variable will typically contain include paths, e.g., ( \"-I~/MyProject\", \
     (while (re-search-forward pattern nil t)
       (setq case (match-string-no-properties 1))
       (setq match (match-string-no-properties 3))
-      (setq detailed_info 
+      (setq detailed_info
             (if (string= "Pattern :" case)
                 (concat (match-string-no-properties 2)
                         (match-string-no-properties 3)
                         (match-string-no-properties 4)
                         (match-string-no-properties 5))
-              (concat 
+              (concat
                (match-string-no-properties 4)
-               (match-string-no-properties 5))))               
+               (match-string-no-properties 5))))
       (if (string= match prev-match)
           (when detailed_info
             (setq match (propertize match
