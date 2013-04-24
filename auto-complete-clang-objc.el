@@ -307,3 +307,5 @@ This variable will typically contain include paths, e.g., ( \"-I~/MyProject\", \
     (symbol . "c")))
 
 (provide 'auto-complete-clang-objc)
+
+;;; auto-complete-clang-objc.el ends here
