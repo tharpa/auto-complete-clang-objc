@@ -264,7 +264,10 @@ This variable will typically contain include paths, e.g., ( \"-I~/MyProject\", \
       (unless (string= s "")
         (setq s (replace-regexp-in-string "<#\\([^#>]*\\)#>" "${\\1}" s))
         (cond ((featurep 'yasnippet)
-               (yas/expand-snippet s begining-of-candidate (point))))))))
+               (unless (fboundp 'yas-expand-snippet)
+                 ;; for yasnippet 0.7 or earlier compatibility
+                 (defalias 'yas-expand-snippet 'yas/expand-snippet))
+               (yas-expand-snippet s begining-of-candidate (point))))))))
 
 (defconst ac-clang-objc-message-pattern
   "[]_a-zA-Z0-9]+\s*\\=")
